@@ -2,13 +2,35 @@ package pl.kobietydokodu.koty.domain;
 
 import java.util.Date;
 
+/**
+ * Klasa reprezentująca kota.
+ */
 public class Kot {
 
+    /**
+     * Imię kota.
+     */
     private String imie;
+    
+    /**
+     * Data urodzenia kota.
+     */
     private Date dataUrodzenia;
+    
+    /**
+     * Waga kota.
+     */
     private Float waga;
+    
+    /**
+     * Imię opiekuna kota.
+     */
     private String imieOpiekuna;
 	
+    /**
+     * Metoda, która opisuje kota pełnym zdaniem.
+     * @return Opis kota w postaci zdania.
+     */
 	public String przedstawSie() {
 		return "Cześć, jestem "+imie+", urodziłem się "+dataUrodzenia+", ważę "+waga+", a opiekuje się mną " + imieOpiekuna;
 	}
