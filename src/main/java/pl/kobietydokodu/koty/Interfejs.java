@@ -1,4 +1,4 @@
-package pl.kobietydokodu.koty;
+﻿package pl.kobietydokodu.koty;
 
 import java.util.Scanner;
 
@@ -22,10 +22,10 @@ public class Interfejs {
     public static void main(String[] args) {
         Kot kot = new Kot();
 
-        System.out.print("Podaj imię kota: ");
+        System.out.print("Podaj imię Psa: ");
         kot.setImie(getUserInput());
 
-        System.out.print("Podaj, kto jest opiekunem kota: ");
+        System.out.print("Podaj, kto jest opiekunem Psa: ");
         kot.setImieOpiekuna(getUserInput());
 
         System.out.println("Dziękuję, teraz już wiem prawie wszystko o kocie!");
