@@ -29,8 +29,10 @@ public class Interfejs {
         kot.setImieOpiekuna(getUserInput());
 
         System.out.println("Dziękuję, teraz już wiem prawie wszystko o kocie!");
-        System.out.println("A więc kot to " + kot.getImie() + " , a opiekun to: " + kot.getImieOpiekuna());
+    
+        System.out.println("A więc kot to " + kot.getImie() + " , a opiekun to: " + kot.getImieOpiekuna())
     }
+    
 
     /**
      * Pomocnicza metoda pozwalająca pobrać jedną linijkę wpisaną przez użytkownika.
