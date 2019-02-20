@@ -1,42 +1,46 @@
 package pl.kobietydokodu.koty;
 
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
-
 import pl.kobietydokodu.koty.domain.Kot;
 
 
-/**
- * Interfejs aplikacji - klasa, którą można uruchomić dzięki metodzie main(...)
- */
 public class Interfejs {
+	private static Scanner scanner=new Scanner(System.in);
+	
+	public static void main(String [] args) {
+	
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy.MM.dd");
+		Kot kotek=new Kot();
+		
+        System.out.println("Podaj imi� kota:");
+        kotek.setImie(getUserInput());
 
-    /**
-     * Obiekt typu Scanner do wczytywania wejścia z klawiatury.
-     */
-    static Scanner inputScanner = new Scanner(System.in);
+        System.out.println("Podaj imi� opiekuna:");
+        kotek.setImieOpiekuna(getUserInput());
+        
 
-    /**
-     * Metoda main, pozwalająca na uruchomienie klasy jako aplikacji.
-     * @param args Argumenty konsoli - nieużywane
-     */
-    public static void main(String[] args) {
-        Kot kot = new Kot();
-
-        System.out.print("Podaj imię kota: ");
-        kot.setImie(getUserInput());
-
-        System.out.print("Podaj, kto jest opiekunem kota: ");
-        kot.setImieOpiekuna(getUserInput());
-
-        System.out.println("Dziękuję, teraz już wiem prawie wszystko o kocie!");
-    }
-
-    /**
-     * Pomocnicza metoda pozwalająca pobrać jedną linijkę wpisaną przez użytkownika.
-     * @return Wczytana linijka.
-     */
-    public static String getUserInput() {
-        return inputScanner.nextLine().trim();
-    }
+        do {
+        System.out.println("Podaj dat�:");
+        try {
+        kotek.setData(sdf.parse(getUserInput()));
+        }
+        catch(Exception e) {}
+        }while(kotek.getData()==null);
+        
+        do {
+        System.out.println("Podaj wag�:");
+        try {
+        kotek.setWaga(Float.valueOf(getUserInput()));
+        }
+        catch(Exception e) {}
+		}while(kotek.getWaga()==null);
+	
+        System.out.print(kotek);
+	}
+	
+	public static String getUserInput() {
+		return scanner.nextLine().trim();
+	}
 
 }
