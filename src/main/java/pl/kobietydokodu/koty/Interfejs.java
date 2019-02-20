@@ -2,10 +2,13 @@ package pl.kobietydokodu.koty;
 
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
+import java.util.regex.Pattern;
+
 import pl.kobietydokodu.koty.domain.Kot;
 
 
 public class Interfejs {
+
 	private static Scanner scanner=new Scanner(System.in);
 	
 	public static void main(String [] args) {
@@ -20,21 +23,28 @@ public class Interfejs {
         kotek.setImieOpiekuna(getUserInput());
         
 
-        do {
+        while(true) {
         System.out.println("Podaj datê:");
-        try {
-        kotek.setData(sdf.parse(getUserInput()));
+        String answer=getUserInput();
+        boolean check=Pattern.matches("[0-9]{4}\\.[01][0-2]\\.[0-3][0-9]", answer);
+        if(check==true) {
+            try {
+            	kotek.setData(sdf.parse(answer));
+            	break;
+                }
+                catch(Exception e) {}
+        	}
         }
-        catch(Exception e) {}
-        }while(kotek.getData()==null);
         
-        do {
+        while(true) {
         System.out.println("Podaj wagê:");
-        try {
-        kotek.setWaga(Float.valueOf(getUserInput()));
+        String answer=getUserInput();
+        boolean check=Pattern.matches("[0-9]+(\\.[0-9]+)?", answer);
+        if(check==true) {
+            	kotek.setWaga(Float.valueOf(answer));
+            	break;
+        	}
         }
-        catch(Exception e) {}
-		}while(kotek.getWaga()==null);
 	
         System.out.print(kotek);
 	}
